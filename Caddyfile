@@ -1,0 +1,15 @@
+:80
+startup php-fpm
+
+root /var/www/public
+
+log stdout
+errors stderr
+
+fastcgi / 127.0.0.1:9000 php
+
+rewrite  {
+  regexp /.*
+  ext /
+  to /index.php?{query}
+}
