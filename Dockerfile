@@ -1,7 +1,7 @@
 FROM alpine:edge
 MAINTAINER philkry <philkry@gmx.de>
 
-EXPOSE 5000
+EXPOSE 80
 VOLUME ['/var/www/app/storage', '/var/www/app/public/logo']
 
 RUN apk update && \
