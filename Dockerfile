@@ -2,7 +2,7 @@ FROM alpine:edge
 MAINTAINER philkry <philkry@gmx.de>
 
 EXPOSE 80
-VOLUME['/var/www/app/storage', '/var/www/app/public/logo']
+VOLUME ['/var/www/app/storage', '/var/www/app/public/logo']
 
 RUN apk update && \
   apk --no-cache add tini \
