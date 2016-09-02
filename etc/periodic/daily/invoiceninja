@@ -1,0 +1,3 @@
+#!/bin/sh
+/var/www/artisan ninja:send-invoices
+/var/www/artisan ninja:send-reminders

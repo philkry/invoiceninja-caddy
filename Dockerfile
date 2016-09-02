@@ -1,7 +1,7 @@
 FROM alpine:edge
 MAINTAINER philkry <philkry@gmx.de>
 
-EXPOSE 80
+EXPOSE 8080
 VOLUME ['/var/www/app/storage', '/var/www/app/public/logo']
 
 RUN apk update && \
@@ -58,6 +58,9 @@ RUN tar -xzf /tmp/v${INVOICENINJA_VERSION}.tar.gz --strip 1 -C /var/www && \
 COPY ./Caddyfile /etc/Caddyfile
 COPY ./etc/profile.d/set_db_env /etc/profile.d/set_db_env
 COPY ./etc/php5/fpm.d/env.conf /etc/php5/fpm.d/env.conf
+COPY ./etc/periodic/daily/invoiceninja /etc/periodic/daily/invoiceninja
+
+RUN chmod a+x /etc/periodic/daily/invoiceninja
 
 
 ENTRYPOINT ["/sbin/tini"]
