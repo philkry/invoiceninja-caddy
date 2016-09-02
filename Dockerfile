@@ -55,7 +55,7 @@ RUN tar -xzf /tmp/v${INVOICENINJA_VERSION}.tar.gz --strip 1 -C /var/www && \
 
 #Copy over a default Caddyfile
 COPY ./Caddyfile /etc/Caddyfile
-COPY ./var/www/config/database.php /var/www/config/database.php
+COPY ./etc/profile.d/set_db_env /etc/profile.d/set_db_env
 
 
 ENTRYPOINT ["/sbin/tini"]
