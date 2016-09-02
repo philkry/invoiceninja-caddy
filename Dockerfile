@@ -2,6 +2,7 @@ FROM alpine:edge
 MAINTAINER philkry <philkry@gmx.de>
 
 EXPOSE 80
+VOLUME['/var/www/app/storage', '/var/www/app/public/logo']
 
 RUN apk update && \
   apk --no-cache add tini \
@@ -53,7 +54,7 @@ RUN tar -xzf /tmp/v${INVOICENINJA_VERSION}.tar.gz --strip 1 -C /var/www && \
     composer install --working-dir /var/www -o --no-dev --no-interaction --no-progress && \
     chown -R nobody:nobody /var/www 
 
-#Copy over a default Caddyfile
+
 COPY ./Caddyfile /etc/Caddyfile
 COPY ./etc/profile.d/set_db_env /etc/profile.d/set_db_env
 COPY ./etc/php5/fpm.d/env.conf /etc/php5/fpm.d/env.conf
