@@ -37,6 +37,7 @@ RUN apk update && \
     sqlite \
 	tar \
 	caddy \
+	bash \
 	curl
 
 
